@@ -5,6 +5,9 @@ var cols = 20;
 var board;
 var context;
 
+var gameLoop;
+
+
 // Misc
 // var score = 0;
 var gameOver = false;
@@ -29,13 +32,16 @@ window.onload = function()
 
     placeFood();
     document.addEventListener("keyup",changeDirection);
-    setInterval(update, 1000/10);
+    
+    //Runs interval until gameOver stops it
+    gameLoop = setInterval(update, 1000/10);
 }
 
 function update()
 {
     if(gameOver)
     {
+        clearInterval(gameLoop);
         return;
     }
 
@@ -60,8 +66,10 @@ context.fillStyle = "red";
 context.fillRect(foodX, foodY, blockSize, blockSize);
 // document.getElementById("score").innerHTML = score;
 
+// Snake Eats food
 if(snakeX == foodX && snakeY == foodY)
 {
+    playBiteSound();
     snakeBody.push([foodX, foodY]);
     placeFood();
     // score++;
@@ -92,6 +100,7 @@ if(snakeX == foodX && snakeY == foodY)
     // gameOver on condition of hitting border
     if(snakeX < 0 || snakeX >= cols*blockSize || snakeY < 0 || snakeY >= rows*blockSize)
     {
+        playDeathSound();
         gameOver = true;
     }
 
@@ -100,6 +109,7 @@ if(snakeX == foodX && snakeY == foodY)
     {
         if(snakeX == snakeBody[i][0] && snakeY == snakeBody[i][1])
         {
+            playDeathSound();
             gameOver = true;
         } 
     }
@@ -146,4 +156,15 @@ function placeFood()
 {
     foodX = Math.floor(Math.random() * cols) * blockSize;
     foodY = Math.floor(Math.random() * rows) * blockSize;
+}
+
+function playDeathSound(){
+    var deathSound = document.getElementById("death")
+    deathSound.play();
+}
+
+function playBiteSound()
+{
+    var biteSound = document.getElementById("bite");
+    biteSound.play();
 }
