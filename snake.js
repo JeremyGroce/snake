@@ -39,19 +39,39 @@ function update()
     {
         return;
     }
-    context.fillStyle = "white";
+
+    // Board Background
+    context.fillStyle = "#90EE90";
     context.fillRect(0, 0, board.width, board.height);
 
-    context.fillStyle = "red";
-    context.fillRect(foodX, foodY, blockSize, blockSize);
-    document.getElementById("score").innerHTML = score;
 
-    if(snakeX == foodX && snakeY == foodY)
-    {
-        snakeBody.push([foodX, foodY]);
-        placeFood();
-        score++;
+    var squareSize = blockSize;
+
+// Loop to draw the chessboard background
+for (var row = 0; row < rows; row++) {
+    for (var col = 0; col < cols; col++) {
+        if ((row + col) % 2 === 0) {
+            // Light green square
+            context.fillStyle = "#aad751";
+        } else {
+            // Slightly darker green square
+            context.fillStyle = "#a2d149";
+        }
+        context.fillRect(col * squareSize, row * squareSize, squareSize, squareSize);
     }
+}
+
+// Draw Food
+context.fillStyle = "red";
+context.fillRect(foodX, foodY, blockSize, blockSize);
+document.getElementById("score").innerHTML = score;
+
+if(snakeX == foodX && snakeY == foodY)
+{
+    snakeBody.push([foodX, foodY]);
+    placeFood();
+    score++;
+}
 
     // updates the movement to follow the previous snake addition
     for(let i = snakeBody.length-1; i> 0; i--)
@@ -65,7 +85,7 @@ function update()
         snakeBody[0] = [snakeX, snakeY];
     }
 
-    context.fillStyle = "lime";
+    context.fillStyle = "#4573e8";
     snakeX += velocityX * blockSize;
     snakeY += velocityY * blockSize;
     context.fillRect(snakeX, snakeY, blockSize, blockSize);
