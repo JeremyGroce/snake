@@ -6,13 +6,12 @@ var board;
 var context;
 
 // Misc
-var score = 0;
+// var score = 0;
 var gameOver = false;
 
 // snake head starting position
 var snakeX = blockSize * 5;
 var snakeY = blockSize * 5;
-var borderRadius = 10; // Adjust this value to control the roundness
 
 var velocityX = 0;
 var velocityY = 0;
@@ -40,11 +39,6 @@ function update()
         return;
     }
 
-    // Board Background
-    context.fillStyle = "#90EE90";
-    context.fillRect(0, 0, board.width, board.height);
-
-
     var squareSize = blockSize;
 
 // Loop to draw the chessboard background
@@ -64,13 +58,13 @@ for (var row = 0; row < rows; row++) {
 // Draw Food
 context.fillStyle = "red";
 context.fillRect(foodX, foodY, blockSize, blockSize);
-document.getElementById("score").innerHTML = score;
+// document.getElementById("score").innerHTML = score;
 
 if(snakeX == foodX && snakeY == foodY)
 {
     snakeBody.push([foodX, foodY]);
     placeFood();
-    score++;
+    // score++;
 }
 
     // updates the movement to follow the previous snake addition
@@ -96,7 +90,7 @@ if(snakeX == foodX && snakeY == foodY)
     }
 
     // gameOver on condition of hitting border
-    if(snakeX < 0 || snakeX > cols*blockSize || snakeY < 0 || snakeY > rows*blockSize)
+    if(snakeX < 0 || snakeX >= cols*blockSize || snakeY < 0 || snakeY > rows*blockSize)
     {
         gameOver = true;
     }
