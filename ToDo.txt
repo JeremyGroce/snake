@@ -1,0 +1,10 @@
++Make food check so it doesn't spawn on top of snake
++Create border around play area
++make seperate div for score
++make snake slightly smaller than grid
++make food slightly smaller than grid
+
++clean up code. look over checkerboard loop
+
++add unique sound per arrow key
++
