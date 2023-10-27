@@ -7,6 +7,7 @@ var context;
 
 // Misc
 var score = 0;
+var gameOver = false;
 
 // snake head starting position
 var snakeX = blockSize * 5;
@@ -34,6 +35,10 @@ window.onload = function()
 
 function update()
 {
+    if(gameOver)
+    {
+        return;
+    }
     context.fillStyle = "white";
     context.fillRect(0, 0, board.width, board.height);
 
@@ -48,11 +53,13 @@ function update()
         score++;
     }
 
+    // updates the movement to follow the previous snake addition
     for(let i = snakeBody.length-1; i> 0; i--)
     {
         snakeBody[i] = snakeBody[i-1];
     }
 
+    // makes the first addition of the chain follow the head
     if(snakeBody.length)
     {
         snakeBody[0] = [snakeX, snakeY];
@@ -68,6 +75,20 @@ function update()
         context.fillRect(snakeBody[i][0], snakeBody[i][1], blockSize, blockSize);
     }
 
+    // gameOver on condition of hitting border
+    if(snakeX < 0 || snakeX > cols*blockSize || snakeY < 0 || snakeY > rows*blockSize)
+    {
+        gameOver = true;
+    }
+
+    // gameOver on condition of hitting body
+    for(let i = 0; i<snakeBody.length; i++)
+    {
+        if(snakeX == snakeBody[i][0] && snakeY == snakeBody[i][1])
+        {
+            gameOver = true;
+        } 
+    }
 
     // **Creates square with curved edges**
     // context.beginPath();    
