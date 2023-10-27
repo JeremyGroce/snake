@@ -163,8 +163,23 @@ function playDeathSound(){
     deathSound.play();
 }
 
+// plays 1 of 3 bite sounds
 function playBiteSound()
 {
-    var biteSound = document.getElementById("bite");
-    biteSound.play();
+    // genenerate random number
+    switch(Math.floor(Math.random()*3)+1)
+    {
+        case 1:
+            var biteSound = document.getElementById("bite1");
+            biteSound.play();
+            break;
+        case 2:
+            var biteSound = document.getElementById("bite2");
+            biteSound.play();
+            break;
+        case 3:
+            var biteSound = document.getElementById("bite3");
+            biteSound.play();
+            break;
+    }
 }
