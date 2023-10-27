@@ -90,7 +90,7 @@ if(snakeX == foodX && snakeY == foodY)
     }
 
     // gameOver on condition of hitting border
-    if(snakeX < 0 || snakeX >= cols*blockSize || snakeY < 0 || snakeY > rows*blockSize)
+    if(snakeX < 0 || snakeX >= cols*blockSize || snakeY < 0 || snakeY >= rows*blockSize)
     {
         gameOver = true;
     }
