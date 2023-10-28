@@ -6,7 +6,7 @@ var board;
 var context;
 
 var foodImage = new Image();
-foodImage.src = '/src/assets/food.png';
+foodImage.src = './assets/food.png';
 var gameLoop;
 
 
