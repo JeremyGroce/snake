@@ -1,4 +1,4 @@
-![image](https://github.com/JeremyGroce/snake/assets/108232216/ace49903-297b-4ec6-9ffe-8a1f7e7b8801)
+![image](https://github.com/JeremyGroce/snake/assets/108232216/e52c5377-4eca-463d-a5d3-929821aba9e9)
 
 
 [Live Demonstration](https://jeremygroce.github.io/snake/src/index.html)
