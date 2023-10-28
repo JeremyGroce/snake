@@ -1,0 +1,9 @@
+-Option to mute sound
+
+-Quiet ambient nature sounds
+
+-Restart Button after death
+
+-Disable Pause button after death
+
+-Picture of arrows keys showing controls which toggles off after first arrow key press
