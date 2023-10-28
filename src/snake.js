@@ -69,7 +69,12 @@ context.fillRect(foodX, foodY, blockSize, blockSize);
 // Snake Eats food
 if(snakeX == foodX && snakeY == foodY)
 {
-    playBiteSound();
+    // promise to prevent update() from waiting
+    playBiteSound()
+    .then(result => console.log(result))
+    .catch(error => console.error(error));
+
+    
     snakeBody.push([foodX, foodY]);
     placeFood();
     // score++;
@@ -164,22 +169,26 @@ function playDeathSound(){
 }
 
 // plays 1 of 3 bite sounds
-function playBiteSound()
-{
-    // genenerate random number
-    switch(Math.floor(Math.random()*3)+1)
-    {
-        case 1:
-            var biteSound = document.getElementById("bite1");
-            biteSound.play();
-            break;
-        case 2:
-            var biteSound = document.getElementById("bite2");
-            biteSound.play();
-            break;
-        case 3:
-            var biteSound = document.getElementById("bite3");
-            biteSound.play();
-            break;
-    }
+function playBiteSound() {
+    return new Promise((resolve, reject) => {
+        switch (Math.floor(Math.random() * 3) + 1) {
+            case 1:
+                var biteSound1 = document.getElementById("bite1");
+                biteSound1.play();
+                biteSound1.onended = () => resolve("Bite 1 sound played");
+                break;
+            case 2:
+                var biteSound2 = document.getElementById("bite2");
+                biteSound2.play();
+                biteSound2.onended = () => resolve("Bite 2 sound played");
+                break;
+            case 3:
+                var biteSound3 = document.getElementById("bite3");
+                biteSound3.play();
+                biteSound3.onended = () => resolve("Bite 3 sound played");
+                break;
+            default:
+                reject("Sound couldn't be played");
+        }
+    });
 }
