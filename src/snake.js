@@ -5,11 +5,13 @@ var cols = 20;
 var board;
 var context;
 
+var foodImage = new Image();
+foodImage.src = '/src/assets/food.png';
 var gameLoop;
 
 
 // Misc
-// var score = 0;
+var score = 0;
 var gameOver = false;
 
 // snake head starting position
@@ -62,9 +64,10 @@ for (var row = 0; row < rows; row++) {
 }
 
 // Draw Food
-context.fillStyle = "red";
-context.fillRect(foodX, foodY, blockSize, blockSize);
-// document.getElementById("score").innerHTML = score;
+context.drawImage(foodImage, foodX, foodY, blockSize, blockSize*1);
+
+
+document.getElementById("score").innerHTML = score;
 
 // Snake Eats food
 if(snakeX == foodX && snakeY == foodY)
@@ -77,7 +80,7 @@ if(snakeX == foodX && snakeY == foodY)
     
     snakeBody.push([foodX, foodY]);
     placeFood();
-    // score++;
+    score++;
 }
 
     // updates the movement to follow the previous snake addition
@@ -161,6 +164,8 @@ function placeFood()
 {
     foodX = Math.floor(Math.random() * cols) * blockSize;
     foodY = Math.floor(Math.random() * rows) * blockSize;
+    context.drawImage(foodImage, foodX, foodY, blockSize, blockSize);
+
 }
 
 function playDeathSound(){

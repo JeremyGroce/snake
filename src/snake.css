@@ -20,7 +20,12 @@ body{
     justify-content: center;
     align-items: center;
 
-    margin-top: 60px;
+    margin-top: 110px;
+    margin-left: -100px;
+}
+
+.apple{
+    left: 135px;
 }
 
 .nav
@@ -35,7 +40,13 @@ body{
     right: 0;
     top: 0;
 
-    display: flex;
-
-    
+    display: flex;    
 }
+
+#score
+{
+    position: absolute;
+    font-size: 70px;
+    top: 35px;
+}
+
