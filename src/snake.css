@@ -20,8 +20,8 @@ body{
     justify-content: center;
     align-items: center;
 
-    margin-top: 110px;
-    margin-left: -100px;
+    margin-top: 60px;
+    margin-left: -60px;
 }
 
 .apple{
@@ -43,18 +43,21 @@ body{
     display: flex;    
 }
 
+/* Score Text */
 #score
 {
     position: absolute;
-    font-size: 70px;
-    top: 35px;
+    font-size: 35px;
+    top: 25px;
 }
 
+/* Pause Screen Toggled Off */
 .hidden
 {
     display: none;
 }
 
+/* Pause Screen Toggled On */
 .visible
 {
     position: absolute;
