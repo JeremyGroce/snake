@@ -50,3 +50,12 @@ body{
     top: 35px;
 }
 
+.hidden
+{
+    display: none;
+}
+
+.visible
+{
+    display: block;
+}

@@ -14,6 +14,8 @@ var gameLoop;
 var score = 0;
 var gameOver = false;
 
+let isPaused = false;
+
 // snake head starting position
 var snakeX = blockSize * 5;
 var snakeY = blockSize * 5;
@@ -33,10 +35,15 @@ window.onload = function()
     context = board.getContext("2d");
 
     placeFood();
-    document.addEventListener("keyup",changeDirection);
+    // start game in response to key press
+    document.addEventListener("keydown",keyReader);
+    
+    
     
     //Runs interval until gameOver stops it
     gameLoop = setInterval(update, 1000/10);
+
+
 }
 
 function update()
@@ -44,6 +51,8 @@ function update()
     if(gameOver)
     {
         clearInterval(gameLoop);
+        // toggle game over screen
+        //-------
         return;
     }
 
@@ -122,41 +131,47 @@ if(snakeX == foodX && snakeY == foodY)
         } 
     }
 
-    // **Creates square with curved edges**
-    // context.beginPath();    
-    // context.moveTo(snakeX + borderRadius, snakeY);
-    // context.lineTo(snakeX + blockSize - borderRadius, snakeY);
-    // context.arc(snakeX + blockSize - borderRadius, snakeY + borderRadius, borderRadius, -Math.PI / 2, 0, false);
-    // context.lineTo(snakeX + blockSize, snakeY + blockSize - borderRadius);
-    // context.arc(snakeX + blockSize - borderRadius, snakeY + blockSize - borderRadius, borderRadius, 0, Math.PI / 2, false);
-    // context.lineTo(snakeX + borderRadius, snakeY + blockSize);
-    // context.arc(snakeX + borderRadius, snakeY + blockSize - borderRadius, borderRadius, Math.PI / 2, Math.PI, false);
-    // context.lineTo(snakeX, snakeY + borderRadius);
-    // context.arc(snakeX + borderRadius, snakeY + borderRadius, borderRadius, -Math.PI, -Math.PI / 2, false);
-    // context.fill();
 }
 
-function changeDirection(e)
+function keyReader(e)
 {
-    if(e.code == "ArrowUp" && velocityY != 1)
+    if(e.code == "ArrowUp" && velocityY != 1 && isPaused == false)
     {
         velocityX = 0;
         velocityY = -1;
     }
-    else if(e.code == "ArrowDown" && velocityY != -1)
+    else if(e.code == "ArrowDown" && velocityY != -1 && isPaused == false)
     {
         velocityX = 0;
         velocityY = 1;
     }
-    else if(e.code == "ArrowLeft" && velocityX != 1)
+    else if(e.code == "ArrowLeft" && velocityX != 1 && isPaused == false)
     {
         velocityX = -1;
         velocityY = 0;
     }
-    else if(e.code == "ArrowRight" && velocityX !=1)
+    else if(e.code == "ArrowRight" && velocityX !=1 && isPaused == false)
     {
         velocityX = 1;
         velocityY = 0;
+    }
+    else if(e.code === "KeyP")
+    {
+        isPaused = !isPaused;   // Toggle Pause
+        var popUp = document.getElementById("pause");
+
+        if(isPaused)    //if true
+        {
+            clearInterval(gameLoop); // Stop game updates
+            popUp.classList.toggle("visible");
+            // Toggle CS pop-up screen
+        }
+        else
+        {
+            popUp.classList.toggle("visible");
+            gameLoop = setInterval(update, 1000 / 10); // Start the game loop again
+        }
+
     }
 }
 // spawn the food randomly
