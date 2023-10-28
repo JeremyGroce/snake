@@ -57,5 +57,13 @@ body{
 
 .visible
 {
+    position: absolute;
     display: block;
+    height: 300px;
+    width: 300px;
+    border-radius: 20%;
+    background-color: #578a34;
+    opacity: 70%;
+    top: 240px;
+    margin-left: 100px;
 }

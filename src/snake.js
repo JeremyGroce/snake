@@ -150,7 +150,7 @@ function keyReader(e)
         velocityX = -1;
         velocityY = 0;
     }
-    else if(e.code == "ArrowRight" && velocityX !=1 && isPaused == false)
+    else if(e.code == "ArrowRight" && velocityX !=-1 && isPaused == false)
     {
         velocityX = 1;
         velocityY = 0;
