@@ -5,42 +5,47 @@ body{
     color: aliceblue;
 }
 
-/* Canvas of JS game */
-.game{
+/* parent of all .css components */
+.snakeGame
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* takes up 90% of viewport to get rid of page scroll */
+    height: 90vh;
 }
 
-/* Behind-Canvas */
+/* Canvas of JS game */
+.game{
+    
+}
+
+/* border around canvas */
 .border{
     height: 550px;
     width: 550px;
-    border-radius: 1%;
+    border-radius: 0px 0px 10px 10px;
     background-color: #578a34;
 
+    /* Center Canvas */
     display: flex;
     justify-content: center;
     align-items: center;
-
-    margin-top: 60px;
-    margin-left: -60px;
 }
 
-.apple{
-    left: 135px;
+.apple
+{
+    margin-right: 470px;
+    margin-top: 4px;
 }
 
 .nav
 {
-    height: 150px;
+    height: 50px;
     width: 550px;
     background-color: #4a752c;
-    border-radius: 1%;
-    margin: auto;
-
-    left: 0;
-    right: 0;
-    top: 0;
-
-    display: flex;    
+    border-radius: 10px 10px 0px 0px;
 }
 
 /* Score Text */
@@ -48,7 +53,7 @@ body{
 {
     position: absolute;
     font-size: 35px;
-    top: 25px;
+    margin-top: 4px;
 }
 
 /* Pause Screen Toggled Off */

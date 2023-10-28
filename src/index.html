@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <!-- Audio Files -->
+                <!-- Audio Files -->
 
     <!-- Death Explosion -->
     <audio id = "death" src="./assets/explosion.wav">
@@ -22,28 +22,38 @@
     <audio id = "bite2" src="./assets/bite2.mp3"></audio>
     <audio id = "bite3" src="./assets/bite3.mp3"></audio>
 
+    <!-- Snake Game Components -->
+    <div class="snakeGame">
+        <!-- nav bar -->
+        <div class="nav">
+            <!-- Apple & Score -->
+            <div class = "apple">  
+                <img src="./assets/food.png" alt="img" 
+                style="height: 40px; 
+                    width: 40px;">   
+                    
+                <span id = score>0</span>
+            </div>
+            <!-- Restart Button -->
+            <div class="restart-button">
+                <img src="./assets/restart-arrow.jpg" alt="img"
+                style="height: 10px;
+                        width: 10px;">
+            </div>
+            <!-- Volume Button -->
 
-    <div class="nav">
-        <div class = "apple">  
-            <img src="./assets/food.png" alt="img" 
-            style="height: 60px; 
-                   width: 60px;">   
-                   
-        <span id = score>0</span>
+
         </div>
 
-
-           
-
         <div class="border">
-                <div class="game">
-                    <canvas id="board"></canvas>  
-                    
-                    <div id="pause" class="hidden">
-                            Paused
-                    </div>
+            <div class="game">
+                <canvas id="board"></canvas>  
+                
+                <div id="pause" class="hidden">
+                        Paused
                 </div>
-            
+            </div>
+        
 
         </div>
     </div>
