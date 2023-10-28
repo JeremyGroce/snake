@@ -1,2 +1,6 @@
+[Live Demonstration]https://jeremygroce.github.io/snake/src/index.html
 
-TEST
+Features: 
+-Sound Effects
+-Pause 
+-Score
