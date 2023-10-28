@@ -80,3 +80,12 @@ body{
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5); /* Adjust shadow properties as needed */
 
 }
+
+#restartImage
+{
+    position: absolute;
+    margin-top: -30px;
+    margin-left: 200px;
+
+
+}

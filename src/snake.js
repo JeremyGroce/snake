@@ -7,6 +7,11 @@ var context;
 
 var foodImage = new Image();
 foodImage.src = "./assets/food.png";
+
+
+
+
+
 var gameLoop;
 
 
@@ -34,6 +39,10 @@ window.onload = function()
     board.width = cols * blockSize;
     context = board.getContext("2d");
 
+
+    var restart = document.getElementById("restartImage");
+    restart.addEventListener("click", restartGame);
+    
     placeFood();
     // start game in response to key press
     document.addEventListener("keydown",keyReader);
@@ -164,7 +173,7 @@ function keyReader(e)
         {
             clearInterval(gameLoop); // Stop game updates
             popUp.classList.toggle("visible");
-            // Toggle CS pop-up screen
+            
         }
         else
         {
@@ -211,4 +220,9 @@ function playBiteSound() {
                 reject("Sound couldn't be played");
         }
     });
+}
+
+function restartGame()
+{
+    window.location.reload();
 }
