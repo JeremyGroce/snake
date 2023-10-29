@@ -1,7 +1,8 @@
+  [Play Now](https://jeremygroce.github.io/snake/src/index.html)
 
-![image](https://github.com/JeremyGroce/snake/assets/108232216/1977eb26-85fa-471a-857f-7951bc49ac5e)
+
+![image](https://github.com/JeremyGroce/snake/assets/108232216/8798f511-3ef3-47bf-87e6-3c9aad035377)
   
-  [Live Demonstration](https://jeremygroce.github.io/snake/src/index.html)
 
 r - Restart
 p - pause
