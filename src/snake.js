@@ -8,17 +8,14 @@ var context;
 var foodImage = new Image();
 foodImage.src = "./assets/food.png";
 
-
-
-
-
 var gameLoop;
 
 
 // Misc
 var score = 0;
-var gameOver = false;
+var highScore = 0;
 
+var gameOver = false;
 let isPaused = false;
 
 // snake head starting position
@@ -39,6 +36,9 @@ window.onload = function()
     board.width = cols * blockSize;
     context = board.getContext("2d");
 
+    // retrieve high score from local storage
+    highScore = localStorage.getItem('highScore') || 0;
+    document.getElementById("bestScore").innerHTML = highScore;
 
     var restart = document.getElementById("restartImage");
     restart.addEventListener("click", restartGame);
@@ -84,8 +84,16 @@ for (var row = 0; row < rows; row++) {
 // Draw Food
 context.drawImage(foodImage, foodX, foodY, blockSize, blockSize*1);
 
-
+// update score
 document.getElementById("score").innerHTML = score;
+
+// update high score
+if(score>=highScore)
+{
+    highScore = score;
+    document.getElementById("bestScore").innerHTML = score;
+}
+
 
 // Snake Eats food
 if(snakeX == foodX && snakeY == foodY)
@@ -143,6 +151,7 @@ if(snakeX == foodX && snakeY == foodY)
 
 }
 
+// processes key reads
 function keyReader(e)
 {
     if(e.code == "ArrowUp" && velocityY != 1 && isPaused == false)
@@ -182,6 +191,11 @@ function keyReader(e)
             gameLoop = setInterval(update, 1000 / 10); // Start the game loop again
         }
 
+    }
+    else if(e.code === "KeyR")
+    {
+        console.log("r-restart");
+        restartGame();
     }
 }
 // spawn the food randomly
@@ -225,5 +239,8 @@ function playBiteSound() {
 
 function restartGame()
 {
+    // Save High Score between game resets
+    localStorage.setItem('highScore', highScore);
+
     window.location.reload();
 }
