@@ -1,15 +1,16 @@
+  [Play Now](https://jeremygroce.github.io/snake/src/index.html)
 
-![image](https://github.com/JeremyGroce/snake/assets/108232216/6f77fdef-f4f4-49dc-a90e-f33da52afbe6)
+
+![image](https://github.com/JeremyGroce/snake/assets/108232216/8798f511-3ef3-47bf-87e6-3c9aad035377)
   
-  [Live Demonstration](https://jeremygroce.github.io/snake/src/index.html)
 
+r - Restart
+p - pause
 
-
-
-Features: 
+**Features**: 
 
 -Sound Effects
 
--Pause 
+-Stores High Score in browser cache between refreshes
 
--Score
+
