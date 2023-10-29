@@ -1,5 +1,5 @@
 
-![image](https://github.com/JeremyGroce/snake/assets/108232216/c8fb2cc7-8fcb-489e-bf42-714ebb884297)
+![image](https://github.com/JeremyGroce/snake/assets/108232216/1977eb26-85fa-471a-857f-7951bc49ac5e)
   
   [Live Demonstration](https://jeremygroce.github.io/snake/src/index.html)
 
