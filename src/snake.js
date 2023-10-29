@@ -18,6 +18,8 @@ var highScore = 0;
 var gameOver = false;
 let isPaused = false;
 
+var deathPopUp; 
+
 // snake head starting position
 var snakeX = blockSize * 5;
 var snakeY = blockSize * 5;
@@ -40,6 +42,9 @@ window.onload = function()
     highScore = localStorage.getItem('highScore') || 0;
     document.getElementById("bestScore").innerHTML = highScore;
 
+    deathPopUp = document.getElementById("gameOver-visible");
+
+
     var restart = document.getElementById("restartImage");
     restart.addEventListener("click", restartGame);
     
@@ -59,9 +64,10 @@ function update()
 {
     if(gameOver)
     {
+        // clear interval
         clearInterval(gameLoop);
         // toggle game over screen
-        //-------
+        deathPopUp.classList.toggle("gameOver-visible");
         return;
     }
 
@@ -241,6 +247,7 @@ function restartGame()
 {
     // Save High Score between game resets
     localStorage.setItem('highScore', highScore);
+    deathPopUp.classList.toggle("gameOver-visible");
 
     window.location.reload();
 }

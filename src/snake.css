@@ -65,13 +65,13 @@ body{
 } 
 
 /* Pause Screen Toggled Off */
-.pause-hidden
+.pause-hidden, .gameOver-hidden
 {
     display: none;
 }
 
 /* Pause Screen Toggled On */
-.pause-visible
+.pause-visible, .gameOver-visible
 {
     position: absolute;
     display: block;
@@ -91,6 +91,4 @@ body{
     position: absolute;
     margin-top: -35px;
     margin-left: 200px;
-
-
 }
