@@ -3,13 +3,13 @@
   
   [Live Demonstration](https://jeremygroce.github.io/snake/src/index.html)
 
+r - Restart
+p - pause
 
-
-
-Features: 
+**Features**: 
 
 -Sound Effects
 
--Pause 
+-Stores High Score in browswer cache between refreshes
 
--Score
+
