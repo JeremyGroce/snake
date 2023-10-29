@@ -113,6 +113,7 @@ if(snakeX == foodX && snakeY == foodY)
         snakeBody[0] = [snakeX, snakeY];
     }
 
+    // draw head
     context.fillStyle = "#4573e8";
     snakeX += velocityX * blockSize;
     snakeY += velocityY * blockSize;
@@ -167,17 +168,17 @@ function keyReader(e)
     else if(e.code === "KeyP")
     {
         isPaused = !isPaused;   // Toggle Pause
-        var popUp = document.getElementById("pause");
+        var popUp = document.getElementById("pause-visible");
 
         if(isPaused)    //if true
         {
             clearInterval(gameLoop); // Stop game updates
-            popUp.classList.toggle("visible");
+            popUp.classList.toggle("pause-visible");
             
         }
         else
         {
-            popUp.classList.toggle("visible");
+            popUp.classList.toggle("pause-visible");
             gameLoop = setInterval(update, 1000 / 10); // Start the game loop again
         }
 
