@@ -10,6 +10,6 @@ p - pause
 
 -Sound Effects
 
--Stores High Score in browswer cache between refreshes
+-Stores High Score in browser cache between refreshes
 
 
